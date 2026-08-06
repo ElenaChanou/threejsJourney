@@ -41,23 +41,30 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("dblclick", () => {
-  const fullscreen =
-    document.fullscreenElement || document.webkitFullscreenElement;
+  const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
 
-  if (!fullscreenElement) {
-    if (canvas.requestFullscreen) {
-      canvas.requestFullscreen();
-    } else if (canvas.webkitFullscreenElement) {
-      canvas.requestFullscreen();
+    if(!fullscreenElement)
+    {
+        if(canvas.requestFullscreen)
+        {
+            canvas.requestFullscreen()
+        }
+        else if(canvas.webkitRequestFullscreen)
+        {
+            canvas.webkitRequestFullscreen()
+        }
     }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
+    else
+    {
+        if(document.exitFullscreen)
+        {
+            document.exitFullscreen()
+        }
+        else if(document.webkitExitFullscreen)
+        {
+            document.webkitExitFullscreen()
+        }
     }
-  }
-  console.log("double click");
 });
 
 /**
